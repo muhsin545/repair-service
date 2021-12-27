@@ -1,38 +1,172 @@
-.App {
-  text-align: center;
+body{
+  padding: 0%;
+  margin: 0%;
+}
+a{
+  text-decoration: none;
+}
+.navbar ,.navbar-brand{
+  content: "";
+  padding: 0%;
+  
+}
+.banner {
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.banner:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 0.2;
+  background-image: url("./images/rami-al-zayat-w33-zg-dNL4-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.demo-content {
+  position: relative;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.carousel-item img{
+  height: 100vh;
+}
+div .text-uppercase h1{
+  font-size: 50px;
+  font-weight: 700;
+  font-family:   'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.App{
   color: white;
+  background: black;
+}
+.i{
+  font-size: 55px;
+  background: linear-gradient(to right, #2052c9,#21a5dd);
+  color:  #ffffff;
 }
 
-.App-link {
-  color: #61dafb;
+#specialOffer{ 
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content:center;
+    background-image: url("./../src/images/laura-rivera-3a7SyW0h8vQ-unsplash.jpg");
+  background-size: cover;
+  
+}
+.aboutUsPage {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.aboutUsPage:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 0.5;
+  background-image: url("./images/21691-ai.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.aboutDemo-content {
+  position: relative;
+}
+.maker{
+  width: fit-content;
+  height: 1090px;
+}
+#discount{
+font-size: 50px;
+font-weight: 800;
+color:rgb(233, 17, 60);
+}
+.ourTeam{
+  transition: all .2s;
+  text-transform: uppercase;
+}
+.ourTeam:hover{
+  transform: translateY(-20px);
+  transition: all .3s;
+ 
+}
+
+.text-gray{
+  color: rgb(167, 161, 161);
+  text-transform: uppercase;
+}
+
+/* review */
+
+.card{
+    background: white;
+    border: none;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+  background-color:white;
+  text-align: center;
+  font-size: 18px;
+  margin: 20px;
+}
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: .3s opacity;
+    transform: translate3d(0,0,0);
+    z-index: 10;
+    margin: 10px;
+    background: black;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: white; */
+  padding: 20px;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.footer p a{
+text-decoration: none;
+color: white;
+font-size: 16px;
+font-weight: 400;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+ .carousel-item img{
+  height: 50vh;
+}
 }
