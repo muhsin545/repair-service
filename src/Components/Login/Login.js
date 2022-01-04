@@ -1,35 +1,22 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from '@firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
-import authenticationFirebase from './firebase.init';
-
-authenticationFirebase()
-
+import { useLocation, useNavigate } from "react-router-dom";
 const Login = () => {
-    const { handleGoogleLogin, error, setIsLoading, logOut, user, setUser } = useAuth();
+    const { signInWithGoogle, error, setIsLoading, logOut, user, setUser } = useAuth();
 
-
-    const location = useLocation();
-    // console.log('came', location?.state?.from);
-
-
+    const location = useLocation()
     const navigate = useNavigate();
-    const redirect_uri = location?.state?.from || '/'
+
 
     const GoogleLogin = () => {
+        signInWithGoogle(location, navigate)
 
-        handleGoogleLogin()
-            .then(result => {
-                navigate.push(redirect_uri)
-                // setUser(result);
-            })
     };
     return (
-        <div className='my-5 text-center mx-auto'>
+        <div className='my-5 text-center mx-auto py-5 '>
 
-            <button className='btn fs-4 fw-bold g-2 btn-outline-primary px-3' onClick={GoogleLogin}>
-                <img src="http://assets.stickpng.com/thumbs/5847f9cbcef1014c0b5e48c8.png" className='img-fluid mx-2' width='50' alt='' />
+            <button className='btn  fs-4 fw-bold btn-info px-2' onClick={GoogleLogin}>
+                <img src="https://play-lh.googleusercontent.com/6UgEjh8Xuts4nwdWzTnWH8QtLuHqRMUB7dp24JYVE2xcYzq4HA8hFfcAbU-R-PC_9uA1" className='img-fluid me-2 rounded-circle' width='50' alt='' />
                 Continue with Google </button>
 
         </div>

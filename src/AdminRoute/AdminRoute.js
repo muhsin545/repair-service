@@ -1,34 +1,26 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 
 const AdminRoute = ({ children, ...rest }) => {
     const { user, admin, isLoading } = useAuth();
+    let location = useLocation()
     if (isLoading) {
-        return <div className="text-center">
-            <div class="spinner-border" role="status">
+        return <div class="d-flex justify-content-center">
+            <div class="spinner-border text-warning" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
     }
+
+    if (user.email && admin) {
+        return children
+    }
     return (
-        <Route
-            {...rest}
-            render={({ location }) =>
-                user.email && admin ? (
-                    children
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/",
-                            state: { from: location }
-                        }}
-                    />
-                )
-            }
-        />
-    );
+        <Navigate to="/signin" state={{ from: location }} />
+    )
+
 };
 
 export default AdminRoute;

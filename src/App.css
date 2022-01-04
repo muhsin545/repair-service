@@ -112,12 +112,13 @@ color:rgb(233, 17, 60);
 /* review */
 
 .card{
-    background: white;
+    background: rgb(12, 12, 12);
     border: none;
 }
 .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
   background-color:white;
   text-align: center;
+  color: #ffffff;
   font-size: 18px;
   margin: 20px;
 }

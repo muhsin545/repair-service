@@ -5,7 +5,7 @@ import maker from './../../../images/maker.jpg'
 const FollowingSteps = () => {
     return (
         <div className='followingSteps'>
-            <div className="row container-fluid my-5 mx-auto  text-primary">
+            <div className="row container-fluid my-5 mx-auto  text-info">
                 <div className="col-md-6 mx-auto text-center px-5 g-4 py-5  bg-dark ">
                     <div className='py-3 my-3 g-3 text-uppercase'>
                         <h2>To order a repair you need to do the following steps</h2>

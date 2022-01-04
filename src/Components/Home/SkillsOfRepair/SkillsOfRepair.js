@@ -6,9 +6,9 @@ const SkillsOfRepair = () => {
         <>
             <div className="row container mx-auto my-5 align-items-center">
                 <div className="col-md-6 my-5">
-                    <div><h1>Our Services Skills __________ </h1>
+                    <div><h1 className='text-info'>Our Services Skills __________ </h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis harum repellat ab, recusandae necessitatibus id at corrupti accusantium alias sapiente repudiandae molestiae quia officiis ut aliquid nobis fuga voluptatum nihil in eum atque consequuntur ea nemo modi. Ducimus saepe deleniti iusto animi tenetur suscipit, ratione, quod corrupti non perferendis atque!</p></div>
-                    <div className='mt-2 py-3 '>
+                    <div className='mt-2 py-3'>
                         <ProgressBar completed={90} customLabel="Mobile Servicing Skills " maxCompleted={100} />
                     </div>
                     <div className='mt-2 py-3 '>

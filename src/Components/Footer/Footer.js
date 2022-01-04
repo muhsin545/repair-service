@@ -48,6 +48,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+                <p>&copy;Muhammod Muhibullah Muhsin -2022</p>
             </div>
         </footer>
     );

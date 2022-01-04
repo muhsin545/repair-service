@@ -1,0 +1,7 @@
+.service:hover{
+    transform: translateY(-25px);
+    transition: all .6s;
+}
+.service{
+    transition: all 0.3s;
+}

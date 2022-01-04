@@ -1,23 +1,31 @@
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, onAuthStateChanged } from '@firebase/auth';
 import React, { useEffect, useState } from 'react';
-import authenticationFirebase from './../FireBase/firebase.init';
-
+import authenticationFirebase from "../Components/Login/firebase.init";
 
 authenticationFirebase()
 
-const UseFirebase = () => {
+const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
-
+    const [admin, setAdmin] = useState(false)
 
     const auth = getAuth();
     const GoogleProvider = new GoogleAuthProvider();
 
-    const handleGoogleLogin = () => {
+    const signInWithGoogle = (location, navigate) => {
         setIsLoading(true);
-        return signInWithPopup(auth, GoogleProvider)
-            .finally(() => setIsLoading(false))
+        signInWithPopup(auth, GoogleProvider)
+            .then((result) => {
+                const user = result.user;
+                savedUser(user.email, user.displayName, 'PUT')
+                const redirect_uri = location?.state?.from || '/';
+                navigate(redirect_uri)
+            }).catch((error) => {
+                setError(error.message)
+            }).finally(() => setIsLoading(false));
+
+
     }
     const unsubscribe = useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -38,16 +46,35 @@ const UseFirebase = () => {
 
             }).finally(() => setIsLoading(false))
     }
+    const savedUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('https://nameless-tor-87895.herokuapp.com/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+    useEffect(() => {
+        fetch(`https://nameless-tor-87895.herokuapp.com/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
     return {
         isLoading,
         user,
         error,
+        admin,
         setUser,
         logOut,
-        handleGoogleLogin,
-        setError
+        signInWithGoogle
+
+
     }
 }
 
 
-export default UseFirebase
+export default useFirebase
